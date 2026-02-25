@@ -4,7 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>2026 justfont 員工旅遊 ✈️ 新潟</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@500;700&display=swap" rel="stylesheet">
+
     <style>
+        /* 透過 jsDelivr 開源 CDN 載入 justfont 粉圓體 (jf-openhuninn) */
+        @font-face {
+            font-family: 'jf-openhuninn';
+            src: url('https://cdn.jsdelivr.net/gh/marsnow/open-huninn-web-font@1.1/font/jf-openhuninn.woff2') format('woff2');
+            font-display: swap;
+        }
+
         :root {
             --primary-color: #87b377;
             --primary-dark: #628a54;
@@ -16,11 +28,18 @@
         }
 
         body {
-            font-family: 'Helvetica Neue', Helvetica, Arial, 'PingFang TC', 'Heiti TC', 'Microsoft JhengHei', sans-serif;
+            /* 內文全面使用粉圓體 */
+            font-family: 'jf-openhuninn', 'PingFang TC', 'Microsoft JhengHei', sans-serif;
             background-color: var(--bg-color);
             margin: 0;
             padding: 0;
             color: var(--text-main);
+            letter-spacing: 0.5px;
+        }
+
+        /* 標題、分頁按鈕、時間使用 Zen Maru Gothic，缺字時自動由粉圓體補上 */
+        h1, h2, h3, .day-title, .tab-btn, .time {
+            font-family: 'Zen Maru Gothic', 'jf-openhuninn', sans-serif;
         }
 
         header {
@@ -70,8 +89,7 @@
             background-color: #f1f3f5;
             color: var(--text-gray);
             border-radius: 25px;
-            font-size: 15px;
-            font-weight: bold;
+            font-size: 16px;
             cursor: pointer;
             transition: all 0.3s ease;
         }
@@ -122,8 +140,7 @@
 
         .day-title {
             color: var(--primary-dark);
-            font-size: 20px;
-            font-weight: bold;
+            font-size: 22px;
             margin: 0;
         }
 
@@ -135,7 +152,7 @@
             text-decoration: none;
             padding: 8px 15px;
             border-radius: 20px;
-            font-size: 13px;
+            font-size: 14px;
             font-weight: bold;
             transition: background 0.2s;
         }
@@ -159,11 +176,11 @@
         }
 
         .time {
-            font-weight: bold;
             color: #555;
             display: inline-block;
             min-width: 120px;
             flex-shrink: 0;
+            font-size: 18px;
         }
 
         .info-box {
@@ -171,7 +188,7 @@
             border-radius: 8px;
             padding: 15px;
             margin-top: 20px;
-            font-size: 14px;
+            font-size: 15px;
             color: #555;
             line-height: 1.6;
             border-left: 4px solid #ced4da;
@@ -189,13 +206,13 @@
             padding: 18px;
             margin-top: 20px;
             border-left: 4px solid var(--primary-color);
-            font-size: 15px;
+            font-size: 16px;
             line-height: 1.7;
         }
 
         .room-box h3 {
             margin: 0 0 12px 0;
-            font-size: 16px;
+            font-size: 18px;
             color: var(--primary-dark);
         }
 
@@ -211,7 +228,6 @@
             border-left: 3px solid var(--primary-light);
         }
 
-        /* 左右並排的體驗名單設定 */
         .activity-split {
             display: flex;
             gap: 15px;
@@ -225,7 +241,7 @@
             padding: 12px;
             border-radius: 6px;
             border: 1px dashed var(--primary-color);
-            font-size: 14px;
+            font-size: 15px;
             line-height: 1.6;
         }
 
@@ -237,7 +253,6 @@
             padding-bottom: 5px;
         }
 
-        /* 提醒備註樣式 */
         .reminder-note {
             font-size: 14px;
             color: #c2255c;
@@ -253,7 +268,7 @@
             text-align: center;
             padding: 30px;
             color: #adb5bd;
-            font-size: 13px;
+            font-size: 14px;
         }
 
         @media (max-width: 600px) {
@@ -261,9 +276,8 @@
             .timeline li { display: flex; flex-direction: column; }
             .timeline li > div { margin-top: 5px; }
             
-            /* 手機版稍微縮小左右間距 */
             .activity-split { gap: 8px; }
-            .activity-col { padding: 10px; font-size: 13.5px; }
+            .activity-col { padding: 10px; font-size: 14px; }
             .reminder-note { display: block; }
         }
     </style>
@@ -288,7 +302,7 @@
         <div class="day-card">
             <div class="day-header">
                 <h2 class="day-title">Day 1：啟程前往新潟</h2>
-                <a href="https://www.google.com/maps/dir/Taiwan+Taoyuan+International+Airport/Niigata+Airport/Dormy+Inn+Niigata/" target="_blank" class="map-btn">🗺️ 查看本日 Google Maps 路線</a>
+                <a href="https://www.google.com/maps/dir/Niigata+Airport/Dormy+Inn+Niigata/" target="_blank" class="map-btn">🗺️ 查看本日 Google Maps 路線</a>
             </div>
             <ul class="timeline">
                 <li>
@@ -296,7 +310,7 @@
                     <div>
                         桃園國際機場 第一航廈 起飛 (虎航 IT228)
                         <div class="reminder-note">
-                            💡 <strong>提醒：</strong>請提前 2.5 小時（約 11:00）至第一航廈 🐯 虎航櫃檯集合
+                            💡 <strong>提醒：</strong>請提前 2.5 小時（約 11:00）至第一航廈 🐯虎航櫃檯集合
                         </div>
                     </div>
                 </li>
@@ -318,7 +332,7 @@
         <div class="day-card">
             <div class="day-header">
                 <h2 class="day-title">Day 2：職人體驗與峽谷絕景</h2>
-                <a href="https://www.google.com/maps/dir/Dormy+Inn+Niigata/Gyokusendo/Tsubame+Industrial+Materials+Museum/Uonuma+no+Sato/Kiyotsu+Gorge/Aburaya+Tousen/" target="_blank" class="map-btn">🗺️ 查看本日 Google Maps 路線</a>
+                <a href="https://www.google.com/maps/dir/Dormy+Inn+Niigata/新潟県燕市大曲4330-1/燕市産業史料館/魚沼の里/清津峡渓谷トンネル/あぶらや燈千/" target="_blank" class="map-btn">🗺️ 查看本日 Google Maps 路線</a>
             </div>
             <ul class="timeline">
                 <li><span class="time">08:30</span><div>飯店出發</div></li>
@@ -331,11 +345,11 @@
                             <div class="activity-split">
                                 <div class="activity-col">
                                     <strong>🛠️ 1組 (銅タンブラー)</strong>
-                                    林霞、蘇煒翔、陳坤廷、葉俊麟、麗子、曾國榕
+                                    霞、BC、Mars、麥口、麗子、榕
                                 </div>
                                 <div class="activity-col">
                                     <strong>🛠️ 2組 (錫の小皿)</strong>
-                                    嚴晨霖、何青儒、姜呈穎、簡國庭、陳弘量、余明潔、翁晨芳、劉芸珊、王皓梅、林庭萱、沈采柔
+                                    Jason、Ru、姜、國庭、弘量、Mindy、晨、雲山、ㄏㄇ、萱、仙
                                 </div>
                             </div>
                         </div>
@@ -351,11 +365,11 @@
             </div>
             <div class="room-box">
                 <h3>🏨 第二天（二人房*2、四人房*2、五人房*1）</h3>
-                <div class="room-group">二人房：陳坤廷、葉俊麟</div>
-                <div class="room-group">二人房：蘇煒翔、簡國庭</div>
-                <div class="room-group">四人房：陳弘量、曾國榕、嚴晨霖、何青儒</div>
-                <div class="room-group">四人房：姜呈穎、沈采柔、林霞、麗子</div>
-                <div class="room-group">五人房：王皓梅、余明潔、林庭萱、翁晨芳、劉芸珊</div>
+                <div class="room-group">二人房：Mars、麥口</div>
+                <div class="room-group">二人房：BC、國庭</div>
+                <div class="room-group">四人房：弘量、榕、Jason、Ru</div>
+                <div class="room-group">四人房：姜、仙、霞、麗子</div>
+                <div class="room-group">五人房：ㄏㄇ、Mindy、萱、晨、雲山</div>
             </div>
         </div>
     </div>
@@ -364,7 +378,7 @@
         <div class="day-card">
             <div class="day-header">
                 <h2 class="day-title">Day 3：手作蕎麥麵與國寶參拜</h2>
-                <a href="https://www.google.com/maps/dir/Aburaya+Tousen/Togakushi+Soba+Museum+Tonkururin/Zenkoji+Temple/Nagano+Station/Sasaya+Hotel/" target="_blank" class="map-btn">🗺️ 查看本日 Google Maps 路線</a>
+                <a href="https://www.google.com/maps/dir/あぶらや燈千/戸隠そば博物館とんくるりん/善光寺/長野駅/笹屋ホテル/" target="_blank" class="map-btn">🗺️ 查看本日 Google Maps 路線</a>
             </div>
             <ul class="timeline">
                 <li><span class="time">08:45</span><div>飯店出發</div></li>
@@ -375,16 +389,16 @@
             </ul>
             <div class="info-box">
                 🍽️ <strong>餐食：</strong> 早 ⭕ | 午 ⭕ | 晚 ⭕<br>
-                🛌 <strong>住宿：</strong> <a href="https://www.sasaya.co.jp/" target="_blank">笹屋ホテル (和食)</a>
+                🛌 <strong>住宿：</strong> <a href="https://www.sasaya.co.jp/" target="_blank">笹屋ホテル (和食or中餐)</a>
             </div>
             <div class="room-box">
                 <h3>🏨 第三天（二人房*3、三人房*1、四人房*2）</h3>
-                <div class="room-group">二人房：陳坤廷、葉俊麟</div>
-                <div class="room-group">二人房：曾國榕、蘇煒翔</div>
-                <div class="room-group">二人房：林霞、麗子</div>
-                <div class="room-group">四人房：嚴晨霖、何青儒、陳弘量、簡國庭</div>
-                <div class="room-group">三人房：余明潔、林庭萱、翁晨芳</div>
-                <div class="room-group">四人房：劉芸珊、王皓梅、姜呈穎、沈采柔</div>
+                <div class="room-group">二人房：Mars、麥口</div>
+                <div class="room-group">二人房：榕、BC</div>
+                <div class="room-group">二人房：霞、麗子</div>
+                <div class="room-group">四人房：Jason、Ru、弘量、國庭</div>
+                <div class="room-group">三人房：Mindy、萱、晨</div>
+                <div class="room-group">四人房：雲山、ㄏㄇ、姜、仙</div>
             </div>
         </div>
     </div>
@@ -393,7 +407,7 @@
         <div class="day-card">
             <div class="day-header">
                 <h2 class="day-title">Day 4：國寶名城與藝術巡禮</h2>
-                <a href="https://www.google.com/maps/dir/Sasaya+Hotel/Matsumoto+Castle/Matsumoto+City+Museum+of+Art/Nanakusanoyu/" target="_blank" class="map-btn">🗺️ 查看本日 Google Maps 路線</a>
+                <a href="https://www.google.com/maps/dir/笹屋ホテル/松本城/松本市美術館/七草の湯/" target="_blank" class="map-btn">🗺️ 查看本日 Google Maps 路線</a>
             </div>
             <ul class="timeline">
                 <li><span class="time">08:30</span><div>飯店出發</div></li>
@@ -408,11 +422,11 @@
             </div>
             <div class="room-box">
                 <h3>🏨 第四天（二人房*2、四人房*2、五人房*1）</h3>
-                <div class="room-group">二人房：陳坤廷、葉俊麟</div>
-                <div class="room-group">二人房：蘇煒翔、簡國庭</div>
-                <div class="room-group">四人房：何青儒、嚴晨霖、陳弘量、曾國榕</div>
-                <div class="room-group">四人房：翁晨芳、王皓梅、林霞、麗子</div>
-                <div class="room-group">五人房：林庭萱、沈采柔、劉芸珊、姜呈穎、余明潔</div>
+                <div class="room-group">二人房：Mars、麥口</div>
+                <div class="room-group">二人房：BC、國庭</div>
+                <div class="room-group">四人房：Ru、Jason、弘量、榕</div>
+                <div class="room-group">四人房：晨、ㄏㄇ、霞、麗子</div>
+                <div class="room-group">五人房：萱、仙、雲山、姜、Mindy</div>
             </div>
         </div>
     </div>
@@ -421,7 +435,7 @@
         <div class="day-card">
             <div class="day-header">
                 <h2 class="day-title">Day 5：賞櫻名所與滿載而歸</h2>
-                <a href="https://www.google.com/maps/dir/Nanakusanoyu/Takada+Castle+Site+Park/Koshinoyuki+Honpo+Yamatoya/Niigata+Station/Niigata+Airport/" target="_blank" class="map-btn">🗺️ 查看本日 Google Maps 路線</a>
+                <a href="https://www.google.com/maps/dir/七草の湯/高田城址公園/新潟県長岡市柳原町3-3/新潟駅/Niigata+Airport/" target="_blank" class="map-btn">🗺️ 查看本日 Google Maps 路線</a>
             </div>
             <ul class="timeline">
                 <li><span class="time">08:00</span><div>飯店出發</div></li>
