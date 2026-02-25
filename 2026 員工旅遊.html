@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2026 justfont 員工旅遊 ✈️ 新潟</title>
+    <style>
+        :root {
+            --primary-color: #87b377;
+            --primary-dark: #628a54;
+            --primary-light: #b4d1a8;
+            --bg-color: #f7faf6;
+            --box-bg: #eef5eb;
+            --text-main: #333333;
+            --text-gray: #777777;
+        }
+
+        body {
+            font-family: 'Helvetica Neue', Helvetica, Arial, 'PingFang TC', 'Heiti TC', 'Microsoft JhengHei', sans-serif;
+            background-color: var(--bg-color);
+            margin: 0;
+            padding: 0;
+            color: var(--text-main);
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+            padding: 50px 20px 30px;
+            text-align: center;
+            color: #fff;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 28px;
+            letter-spacing: 1px;
+            text-shadow: 1px 2px 3px rgba(0,0,0,0.2);
+        }
+
+        header p {
+            margin: 10px 0 0;
+            font-size: 15px;
+            opacity: 0.9;
+        }
+
+        .container {
+            padding: 30px 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .tabs-container {
+            background-color: #fff;
+            overflow-x: auto;
+            white-space: nowrap;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+            padding: 12px 10px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            text-align: center;
+        }
+
+        .tab-btn {
+            display: inline-block;
+            padding: 12px 20px;
+            margin: 0 6px;
+            border: none;
+            background-color: #f1f3f5;
+            color: var(--text-gray);
+            border-radius: 25px;
+            font-size: 15px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .tab-btn:hover {
+            background-color: #e2e6ea;
+        }
+
+        .tab-btn.active {
+            background-color: var(--primary-color);
+            color: #fff;
+            box-shadow: 0 3px 10px rgba(135, 179, 119, 0.4);
+        }
+
+        .day-content {
+            display: none;
+            animation: fadeIn 0.4s ease;
+        }
+
+        .day-content.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(8px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .day-card {
+            background: #fff;
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 25px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            border-top: 6px solid var(--primary-color);
+        }
+
+        .day-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px dashed var(--primary-light);
+            padding-bottom: 12px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .day-title {
+            color: var(--primary-dark);
+            font-size: 20px;
+            font-weight: bold;
+            margin: 0;
+        }
+
+        .map-btn {
+            display: inline-flex;
+            align-items: center;
+            background-color: var(--box-bg);
+            color: var(--primary-dark);
+            text-decoration: none;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: bold;
+            transition: background 0.2s;
+        }
+        
+        .map-btn:hover {
+            background-color: var(--primary-light);
+            color: #fff;
+        }
+
+        .timeline {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .timeline li {
+            margin-bottom: 15px;
+            font-size: 16px;
+            line-height: 1.5;
+            display: flex;
+        }
+
+        .time {
+            font-weight: bold;
+            color: #555;
+            display: inline-block;
+            min-width: 120px;
+            flex-shrink: 0;
+        }
+
+        .info-box {
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            padding: 15px;
+            margin-top: 20px;
+            font-size: 14px;
+            color: #555;
+            line-height: 1.6;
+            border-left: 4px solid #ced4da;
+        }
+
+        .info-box a {
+            color: var(--primary-dark);
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .room-box {
+            background-color: var(--box-bg);
+            border-radius: 8px;
+            padding: 18px;
+            margin-top: 20px;
+            border-left: 4px solid var(--primary-color);
+            font-size: 15px;
+            line-height: 1.7;
+        }
+
+        .room-box h3 {
+            margin: 0 0 12px 0;
+            font-size: 16px;
+            color: var(--primary-dark);
+        }
+
+        .room-group {
+            margin-bottom: 8px;
+        }
+
+        .activity-group {
+            background-color: var(--box-bg);
+            padding: 12px 15px;
+            border-radius: 8px;
+            margin-top: 8px;
+            border-left: 3px solid var(--primary-light);
+        }
+
+        /* 左右並排的體驗名單設定 */
+        .activity-split {
+            display: flex;
+            gap: 15px;
+            margin-top: 8px;
+            align-items: stretch;
+        }
+
+        .activity-col {
+            flex: 1;
+            background-color: rgba(255, 255, 255, 0.7);
+            padding: 12px;
+            border-radius: 6px;
+            border: 1px dashed var(--primary-color);
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        .activity-col strong {
+            color: var(--primary-dark);
+            display: block;
+            margin-bottom: 5px;
+            border-bottom: 1px solid #e2e8e0;
+            padding-bottom: 5px;
+        }
+
+        /* 提醒備註樣式 */
+        .reminder-note {
+            font-size: 14px;
+            color: #c2255c;
+            margin-top: 8px;
+            background: #fff0f3;
+            padding: 8px 12px;
+            border-radius: 6px;
+            border-left: 3px solid #ff879a;
+            display: inline-block;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            color: #adb5bd;
+            font-size: 13px;
+        }
+
+        @media (max-width: 600px) {
+            .time { min-width: auto; margin-right: 10px; }
+            .timeline li { display: flex; flex-direction: column; }
+            .timeline li > div { margin-top: 5px; }
+            
+            /* 手機版稍微縮小左右間距 */
+            .activity-split { gap: 8px; }
+            .activity-col { padding: 10px; font-size: 13.5px; }
+            .reminder-note { display: block; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>2026 justfont 員工旅遊 ✈️ 新潟</h1>
+    <p>5 天 4 夜｜4/6 (一) - 4/10 (五)</p>
+</header>
+
+<div class="tabs-container">
+    <button class="tab-btn active" onclick="showDay('day1')">4/6 (一)</button>
+    <button class="tab-btn" onclick="showDay('day2')">4/7 (二)</button>
+    <button class="tab-btn" onclick="showDay('day3')">4/8 (三)</button>
+    <button class="tab-btn" onclick="showDay('day4')">4/9 (四)</button>
+    <button class="tab-btn" onclick="showDay('day5')">4/10 (五)</button>
+</div>
+
+<div class="container">
+    <div id="day1" class="day-content active">
+        <div class="day-card">
+            <div class="day-header">
+                <h2 class="day-title">Day 1：啟程前往新潟</h2>
+                <a href="https://www.google.com/maps/dir/Taiwan+Taoyuan+International+Airport/Niigata+Airport/Dormy+Inn+Niigata/" target="_blank" class="map-btn">🗺️ 查看本日 Google Maps 路線</a>
+            </div>
+            <ul class="timeline">
+                <li>
+                    <span class="time">13:45</span>
+                    <div>
+                        桃園國際機場 第一航廈 起飛 (虎航 IT228)
+                        <div class="reminder-note">
+                            💡 <strong>提醒：</strong>請提前 2.5 小時（約 11:00）至第一航廈 🐯虎航櫃檯集合
+                        </div>
+                    </div>
+                </li>
+                <li><span class="time">18:00</span><div>抵達新潟機場 (KIJ)</div></li>
+                <li><span class="time">19:00</span><div>集合搭乘巴士</div></li>
+                <li><span class="time">19:20</span><div>抵達飯店 (辦理入住)</div></li>
+            </ul>
+            <div class="info-box">
+                🍽️ <strong>餐食：</strong> 早 ✖ | 午 ✖ | 晚 ✖<br>
+                🛌 <strong>住宿：</strong> <a href="https://dormy-hotels.com/dormyinn/hotels/niigata/" target="_blank">天然温泉 多宝の湯 Dormy Inn 新潟</a>
+            </div>
+            <div class="room-box">
+                <h3>🏨 第一天（單人房*17）</h3>
+            </div>
+        </div>
+    </div>
+
+    <div id="day2" class="day-content">
+        <div class="day-card">
+            <div class="day-header">
+                <h2 class="day-title">Day 2：職人體驗與峽谷絕景</h2>
+                <a href="https://www.google.com/maps/dir/Dormy+Inn+Niigata/Gyokusendo/Tsubame+Industrial+Materials+Museum/Uonuma+no+Sato/Kiyotsu+Gorge/Aburaya+Tousen/" target="_blank" class="map-btn">🗺️ 查看本日 Google Maps 路線</a>
+            </div>
+            <ul class="timeline">
+                <li><span class="time">08:30</span><div>飯店出發</div></li>
+                <li><span class="time">09:15 - 10:00</span><div>玉川堂 (見學、中文導覽)</div></li>
+                <li>
+                    <span class="time">10:10 - 11:10</span>
+                    <div>
+                        燕市產業史料館 / 體驗分組名單
+                        <div class="activity-group">
+                            <div class="activity-split">
+                                <div class="activity-col">
+                                    <strong>🛠️ 1組 (銅タンブラー)</strong>
+                                    林霞、蘇煒翔、陳坤廷、葉俊麟、麗子、曾國榕
+                                </div>
+                                <div class="activity-col">
+                                    <strong>🛠️ 2組 (錫の小皿)</strong>
+                                    嚴晨霖、何青儒、姜呈穎、簡國庭、陳弘量、余明潔、翁晨芳、劉芸珊、王皓梅、林庭萱、沈采柔
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li><span class="time">12:30 - 14:00</span><div>魚沼之里 (自由午餐與購物)</div></li>
+                <li><span class="time">15:00 - 15:45</span><div>清津峽溪谷隧道 (參觀)</div></li>
+                <li><span class="time">17:30</span><div>抵達飯店</div></li>
+            </ul>
+            <div class="info-box">
+                🍽️ <strong>餐食：</strong> 早 ⭕ | 午 ✖ | 晚 ⭕<br>
+                🛌 <strong>住宿：</strong> <a href="https://www.aburaya-tousen.co.jp/" target="_blank">あぶらや燈千 (和食)</a>
+            </div>
+            <div class="room-box">
+                <h3>🏨 第二天（二人房*2、四人房*2、五人房*1）</h3>
+                <div class="room-group">二人房：陳坤廷、葉俊麟</div>
+                <div class="room-group">二人房：蘇煒翔、簡國庭</div>
+                <div class="room-group">四人房：陳弘量、曾國榕、嚴晨霖、何青儒</div>
+                <div class="room-group">四人房：姜呈穎、沈采柔、林霞、麗子</div>
+                <div class="room-group">五人房：王皓梅、余明潔、林庭萱、翁晨芳、劉芸珊</div>
+            </div>
+        </div>
+    </div>
+
+    <div id="day3" class="day-content">
+        <div class="day-card">
+            <div class="day-header">
+                <h2 class="day-title">Day 3：手作蕎麥麵與國寶參拜</h2>
+                <a href="https://www.google.com/maps/dir/Aburaya+Tousen/Togakushi+Soba+Museum+Tonkururin/Zenkoji+Temple/Nagano+Station/Sasaya+Hotel/" target="_blank" class="map-btn">🗺️ 查看本日 Google Maps 路線</a>
+            </div>
+            <ul class="timeline">
+                <li><span class="time">08:45</span><div>飯店出發</div></li>
+                <li><span class="time">10:00 - 12:00</span><div>戶隱蕎麥麵博物館 (手作體驗+午餐)</div></li>
+                <li><span class="time">12:45 - 14:45</span><div>善光寺 (參拜與購物)</div></li>
+                <li><span class="time">15:00 - 17:00</span><div>長野市中心 (自由購物)</div></li>
+                <li><span class="time">18:00</span><div>抵達飯店</div></li>
+            </ul>
+            <div class="info-box">
+                🍽️ <strong>餐食：</strong> 早 ⭕ | 午 ⭕ | 晚 ⭕<br>
+                🛌 <strong>住宿：</strong> <a href="https://www.sasaya.co.jp/" target="_blank">笹屋ホテル (和食)</a>
+            </div>
+            <div class="room-box">
+                <h3>🏨 第三天（二人房*3、三人房*1、四人房*2）</h3>
+                <div class="room-group">二人房：陳坤廷、葉俊麟</div>
+                <div class="room-group">二人房：曾國榕、蘇煒翔</div>
+                <div class="room-group">二人房：林霞、麗子</div>
+                <div class="room-group">四人房：嚴晨霖、何青儒、陳弘量、簡國庭</div>
+                <div class="room-group">三人房：余明潔、林庭萱、翁晨芳</div>
+                <div class="room-group">四人房：劉芸珊、王皓梅、姜呈穎、沈采柔</div>
+            </div>
+        </div>
+    </div>
+
+    <div id="day4" class="day-content">
+        <div class="day-card">
+            <div class="day-header">
+                <h2 class="day-title">Day 4：國寶名城與藝術巡禮</h2>
+                <a href="https://www.google.com/maps/dir/Sasaya+Hotel/Matsumoto+Castle/Matsumoto+City+Museum+of+Art/Nanakusanoyu/" target="_blank" class="map-btn">🗺️ 查看本日 Google Maps 路線</a>
+            </div>
+            <ul class="timeline">
+                <li><span class="time">08:30</span><div>飯店出發</div></li>
+                <li><span class="time">09:30 - 12:00</span><div>松本城 & 城下町 (入城參觀、自由午餐)</div></li>
+                <li><span class="time">12:15 - 13:45</span><div>松本市中心 (自由購物)</div></li>
+                <li><span class="time">14:00 - 15:30</span><div>松本市美術館 (入館參觀)</div></li>
+                <li><span class="time">16:45</span><div>抵達飯店</div></li>
+            </ul>
+            <div class="info-box">
+                🍽️ <strong>餐食：</strong> 早 ⭕ | 午 ✖ | 晚 ⭕<br>
+                🛌 <strong>住宿：</strong> <a href="https://www.nanakusanoyu.net/" target="_blank">七草の湯</a>
+            </div>
+            <div class="room-box">
+                <h3>🏨 第四天（二人房*2、四人房*2、五人房*1）</h3>
+                <div class="room-group">二人房：陳坤廷、葉俊麟</div>
+                <div class="room-group">二人房：蘇煒翔、簡國庭</div>
+                <div class="room-group">四人房：何青儒、嚴晨霖、陳弘量、曾國榕</div>
+                <div class="room-group">四人房：翁晨芳、王皓梅、林霞、麗子</div>
+                <div class="room-group">五人房：林庭萱、沈采柔、劉芸珊、姜呈穎、余明潔</div>
+            </div>
+        </div>
+    </div>
+
+    <div id="day5" class="day-content">
+        <div class="day-card">
+            <div class="day-header">
+                <h2 class="day-title">Day 5：賞櫻名所與滿載而歸</h2>
+                <a href="https://www.google.com/maps/dir/Nanakusanoyu/Takada+Castle+Site+Park/Koshinoyuki+Honpo+Yamatoya/Niigata+Station/Niigata+Airport/" target="_blank" class="map-btn">🗺️ 查看本日 Google Maps 路線</a>
+            </div>
+            <ul class="timeline">
+                <li><span class="time">08:00</span><div>飯店出發</div></li>
+                <li><span class="time">10:00 - 12:00</span><div>高田城址公園 (賞花、自由午餐)</div></li>
+                <li><span class="time">13:30 - 14:00</span><div>越乃雪本舖 大和屋 本店 (購物)</div></li>
+                <li><span class="time">15:15 - 16:30</span><div>新潟市中心 (最後自由購物)</div></li>
+                <li><span class="time">17:00</span><div>抵達新潟機場</div></li>
+                <li><span class="time">18:50</span><div>新潟機場 起飛 (虎航 IT229)</div></li>
+                <li><span class="time">21:25</span><div>抵達桃園國際機場 第一航廈</div></li>
+            </ul>
+            <div class="info-box">
+                🍽️ <strong>餐食：</strong> 早 ⭕ | 午 ✖ | 晚 ✖
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer>
+    © 2026 justfont 員工旅遊手冊
+</footer>
+
+<script>
+    function showDay(dayId) {
+        var contents = document.getElementsByClassName('day-content');
+        for (var i = 0; i < contents.length; i++) {
+            contents[i].classList.remove('active');
+        }
+        
+        var buttons = document.getElementsByClassName('tab-btn');
+        for (var i = 0; i < buttons.length; i++) {
+            buttons[i].classList.remove('active');
+        }
+        
+        document.getElementById(dayId).classList.add('active');
+        event.currentTarget.classList.add('active');
+    }
+</script>
+
+</body>
+</html>
