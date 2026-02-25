@@ -30,7 +30,6 @@
         }
 
         body {
-            /* 內文全面使用粉圓體 */
             font-family: 'jf-openhuninn', 'PingFang TC', 'Microsoft JhengHei', sans-serif;
             background-color: var(--bg-color);
             margin: 0;
@@ -39,7 +38,6 @@
             letter-spacing: 0.5px;
         }
 
-        /* 標題、分頁按鈕、時間使用 Zen Maru Gothic，缺字時自動由粉圓體補上 */
         h1, h2, h3, .day-title, .tab-btn, .time {
             font-family: 'Zen Maru Gothic', 'jf-openhuninn', sans-serif;
         }
@@ -60,9 +58,28 @@
         }
 
         header p {
-            margin: 10px 0 0;
+            margin: 10px 0 15px;
             font-size: 15px;
             opacity: 0.9;
+        }
+
+        /* 天氣查詢按鈕樣式 */
+        .weather-btn {
+            display: inline-block;
+            background-color: rgba(255, 255, 255, 0.2);
+            color: #fff;
+            text-decoration: none;
+            padding: 6px 15px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: bold;
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            transition: all 0.2s;
+            margin-top: 5px;
+        }
+
+        .weather-btn:hover {
+            background-color: rgba(255, 255, 255, 0.3);
         }
 
         .container {
@@ -260,13 +277,20 @@
             color: #c2255c;
             margin-top: 8px;
             background: #fff0f3;
-            padding: 8px 12px;
+            padding: 12px;
             border-radius: 6px;
             border-left: 3px solid #ff879a;
             display: inline-block;
+            line-height: 1.6;
         }
 
-        /* 虎航自助報到區塊樣式 (改為虎航標準橘黃色系) */
+        .reminder-note a {
+            color: #c2255c;
+            text-decoration: underline;
+            font-weight: bold;
+        }
+
+        /* 虎航自助報到區塊樣式 */
         .flight-checkin-box {
             background-color: #fdfaf0;
             border-radius: 8px;
@@ -318,7 +342,6 @@
             padding-bottom: 5px;
         }
 
-        /* 複製按鈕樣式 */
         .copy-btn {
             background-color: #fff;
             border: 1px solid #f2ab27;
@@ -362,11 +385,32 @@
             background-color: #d9961e;
         }
 
+        /* 頁尾與 LINE 按鈕樣式 */
         footer {
             text-align: center;
-            padding: 30px;
+            padding: 10px 20px 40px;
             color: #adb5bd;
             font-size: 14px;
+        }
+
+        .line-join-btn {
+            display: inline-block;
+            background-color: #06C755;
+            color: #ffffff;
+            text-decoration: none;
+            padding: 12px 25px;
+            border-radius: 30px;
+            font-size: 16px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 10px rgba(6, 199, 85, 0.3);
+            transition: all 0.2s;
+            letter-spacing: 1px;
+        }
+
+        .line-join-btn:hover {
+            background-color: #05b34c;
+            transform: translateY(-2px);
         }
 
         @media (max-width: 600px) {
@@ -387,6 +431,7 @@
 <header>
     <h1>2026 遮放の員旅 ✈️ 新潟</h1>
     <p>5 天 4 夜｜4/6 (一) - 4/10 (五)</p>
+    <a href="https://www.japan.travel/en/weather/hokuriku/niigata/" target="_blank" class="weather-btn">⛅ 新潟即時天氣查詢</a>
 </header>
 
 <div class="tabs-container">
@@ -410,7 +455,9 @@
                     <div>
                         桃園國際機場【第一航廈】起飛 (🐯 虎航 IT228)
                         <div class="reminder-note">
-                            💡 <strong>提醒：</strong>請提前 2.5 小時（約 11:00）至第一航廈 🐯 虎航櫃檯集合
+                            💡 <strong>提醒：</strong>請提前 2.5 小時（約 11:00）至第一航廈 🐯 虎航櫃檯集合<br>
+                            🧳 <strong>行李：</strong>每人 10 公斤手提行李 ＋ 20 公斤託運行李<br>
+                            🔗 <a href="https://www.tigerairtw.com/zh-tw/welcome-on-board/baggage" target="_blank">詳細規定可參考虎航官網</a>
                         </div>
                     </div>
                 </li>
@@ -602,11 +649,13 @@
 </div>
 
 <footer>
+    <div>
+        <a href="https://line.me/ti/g/DjEHGedhdN" target="_blank" class="line-join-btn">💬 點此加入新潟員旅 LINE 群組</a>
+    </div>
     © 2026 遮放の員旅手冊
 </footer>
 
 <script>
-    // 切換日期分頁功能
     function showDay(dayId) {
         var contents = document.getElementsByClassName('day-content');
         for (var i = 0; i < contents.length; i++) {
@@ -622,16 +671,12 @@
         event.currentTarget.classList.add('active');
     }
 
-    // 複製訂位代號功能
     function copyCode(text, btn) {
-        // 使用剪貼簿 API 複製文字
         navigator.clipboard.writeText(text).then(() => {
-            // 複製成功時的視覺回饋
             const originalText = btn.innerHTML;
             btn.innerHTML = "已複製 ✔";
             btn.classList.add("copied");
             
-            // 2秒後恢復原狀
             setTimeout(() => {
                 btn.innerHTML = originalText;
                 btn.classList.remove("copied");
