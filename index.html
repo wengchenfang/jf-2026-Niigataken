@@ -63,7 +63,6 @@
             opacity: 0.9;
         }
 
-        /* 天氣查詢按鈕樣式 */
         .weather-btn {
             display: inline-block;
             background-color: rgba(255, 255, 255, 0.2);
@@ -301,7 +300,6 @@
             font-weight: bold;
         }
 
-        /* 虎航自助報到區塊樣式 */
         .flight-checkin-box {
             background-color: #fdfaf0;
             border-radius: 8px;
@@ -396,9 +394,102 @@
             background-color: #d9961e;
         }
 
+        /* 景點推薦區塊樣式 */
+        .spot-area-title {
+            background-color: #e9ecef;
+            padding: 8px 15px;
+            border-radius: 6px;
+            font-size: 16px;
+            color: #495057;
+            margin: 25px 0 15px;
+            border-left: 5px solid #adb5bd;
+        }
+
+        .spot-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 15px;
+        }
+
+        .spot-card {
+            background: #fff;
+            border: 1px solid #e9ecef;
+            border-radius: 8px;
+            padding: 15px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.02);
+            transition: transform 0.2s;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .spot-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+
+        .spot-title {
+            font-size: 16px;
+            font-weight: bold;
+            color: var(--primary-dark);
+            margin: 0 0 8px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+
+        .spot-tag {
+            font-size: 12px;
+            padding: 3px 8px;
+            border-radius: 12px;
+            font-weight: normal;
+            white-space: nowrap;
+            margin-left: 10px;
+        }
+
+        .tag-food { background: #ffe3e3; color: #c92a2a; }
+        .tag-shop { background: #f3d9fa; color: #862e9c; }
+        .tag-book { background: #d0ebff; color: #1864ab; }
+        .tag-craft { background: #fff3cd; color: #b08800; }
+        .tag-other { background: #f1f3f5; color: #495057; }
+
+        .spot-note {
+            font-size: 14px;
+            color: #555;
+            margin: 0 0 15px 0;
+            line-height: 1.5;
+            flex-grow: 1;
+        }
+        
+        .spot-time {
+            display: block;
+            margin-top: 8px;
+            font-size: 13px;
+            color: #1971c2;
+            background-color: #e7f5ff;
+            padding: 5px 8px;
+            border-radius: 4px;
+        }
+
+        .spot-link {
+            display: inline-block;
+            font-size: 13px;
+            color: var(--primary-color);
+            text-decoration: none;
+            border: 1px solid var(--primary-color);
+            padding: 4px 10px;
+            border-radius: 15px;
+            transition: all 0.2s;
+            align-self: flex-start;
+        }
+
+        .spot-link:hover {
+            background-color: var(--primary-color);
+            color: #fff;
+        }
+
         footer {
             text-align: center;
-            padding: 30px 20px;
+            padding: 30px 20px 40px;
             color: #adb5bd;
             font-size: 14px;
         }
@@ -407,12 +498,11 @@
             .time { min-width: auto; margin-right: 10px; }
             .timeline li { display: flex; flex-direction: column; }
             .timeline li > div { margin-top: 5px; }
-            
             .activity-split { gap: 8px; }
             .activity-col { padding: 10px; font-size: 14px; }
             .reminder-note { display: block; }
-
             .checkin-split { flex-direction: column; gap: 10px; }
+            .spot-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -430,6 +520,7 @@
     <button class="tab-btn" onclick="showDay('day3')">4/8 (三)</button>
     <button class="tab-btn" onclick="showDay('day4')">4/9 (四)</button>
     <button class="tab-btn" onclick="showDay('day5')">4/10 (五)</button>
+    <button class="tab-btn" style="background-color: #fff3cd; color: #b08800;" onclick="showDay('recommend')">⭐ 景點推薦</button>
 </div>
 
 <div class="container">
@@ -633,6 +724,179 @@
                 </div>
                 <a href="https://sci.tigerairtw.com/zh-TW/login" target="_blank" class="checkin-btn">🔗 前往虎航自助報到頁面</a>
             </div>
+        </div>
+    </div>
+
+    <div id="recommend" class="day-content">
+        <div class="day-card">
+            <h2 class="day-title" style="color: #b08800; border-bottom-color: #fff3cd;">⭐ 自由活動景點推薦</h2>
+            <p style="color: #555; font-size: 15px; margin-top: 10px;">幫大家整理了各行程的私房景點！</p>
+
+            <h3 class="spot-area-title" style="border-left-color: #f2ab27;">📌 實用資訊地圖</h3>
+            <div class="spot-grid">
+                <div class="spot-card" style="border-color: #f2ab27;">
+                    <h4 class="spot-title">松本工藝逛街地圖 <span class="spot-tag tag-craft" style="background: #fdfaf0; color: #b37700; border: 1px solid #f2ab27;">🗺️ 資訊</span></h4>
+                    <p class="spot-note">松本市區超詳盡的藝廊、工藝品店導覽網站，推薦自由活動時邊走邊看！</p>
+                    <a href="https://matsumoto-crafts-month.com/small-town-walk/gallery-shop/" target="_blank" class="spot-link">📍 前往網站</a>
+                </div>
+            </div>
+
+            <h3 class="spot-area-title">📍 Day 1 ＆ Day 5｜新潟市中心</h3>
+            <div class="spot-grid">
+                <div class="spot-card">
+                    <h4 class="spot-title">古町通二手書店群 <span class="spot-tag tag-book">📚 書店</span></h4>
+                    <p class="spot-note">
+                        新潟市區可愛的二手書店，很適合喜歡淘書的人去挖寶。
+                        <span class="spot-time">⏱️ 營業時間：各店家不同，約 11:00 - 18:00</span>
+                    </p>
+                    <a href="https://www.xxtravel.jp/2024/03/1-furumachi-dori.html?m=1" target="_blank" class="spot-link">📍 參考遊記</a>
+                </div>
+            </div>
+
+            <h3 class="spot-area-title">📍 Day 3 ＆ Day 4｜長野、松本市區皆有</h3>
+            <div class="spot-grid">
+                <div class="spot-card">
+                    <h4 class="spot-title">竹風堂 <span class="spot-tag tag-food">🍰 伴手禮</span></h4>
+                    <p class="spot-note">
+                        栗子銅鑼燒很好吃（雖然超甜），很適合買來當伴手禮。
+                        <span class="spot-time">⏱️ 營業時間：08:00 - 18:00 (依分店略有不同)</span>
+                    </p>
+                    <a href="https://maps.app.goo.gl/fBdwcHHSW9uKNJs27" target="_blank" class="spot-link">📍 Google Map</a>
+                </div>
+            </div>
+
+            <h3 class="spot-area-title">📍 Day 4｜松本市中心、城下町周邊</h3>
+            <div class="spot-grid">
+                <div class="spot-card">
+                    <h4 class="spot-title">松本陶藝家的店 <span class="spot-tag tag-craft">🎨 工藝</span></h4>
+                    <p class="spot-note">
+                        推薦雪山系列器皿，非常喜歡。
+                        <span class="spot-time">⏱️ 營業時間：建議行前確認 IG/公告</span>
+                    </p>
+                    <a href="https://maps.app.goo.gl/x6fW4gTC9ECUoqdr8" target="_blank" class="spot-link">📍 Google Map</a>
+                </div>
+                <div class="spot-card">
+                    <h4 class="spot-title">中町通 <span class="spot-tag tag-shop">🛍️ 逛街</span></h4>
+                    <p class="spot-note">
+                        街上很多工藝品與民藝家具店，但留意 17:30 店家就關得差不多了。
+                        <span class="spot-time">⏱️ 營業時間：多數店家約 10:00 - 17:00</span>
+                    </p>
+                </div>
+                <div class="spot-card">
+                    <h4 class="spot-title">Pino Libro <span class="spot-tag tag-shop">🛍️ 選物</span></h4>
+                    <p class="spot-note">
+                        藝術家寄賣商品，空間小東西偏可愛型。缺點：常常臨時不開。
+                        <span class="spot-time">⏱️ 營業時間：10:00 - 18:00 (週三公休)</span>
+                    </p>
+                    <a href="https://maps.app.goo.gl/mYReXm48FMksTaMz9" target="_blank" class="spot-link">📍 Google Map</a>
+                </div>
+                <div class="spot-card">
+                    <h4 class="spot-title">Mina perhonen <span class="spot-tag tag-shop">🛍️ 逛街</span></h4>
+                    <p class="spot-note">
+                        知名設計師皆川明的店，服飾與空間設計都很特別。
+                        <span class="spot-time">⏱️ 營業時間：11:00 - 18:00</span>
+                    </p>
+                    <a href="https://maps.app.goo.gl/2jiPB2QBUwnaPQyx6" target="_blank" class="spot-link">📍 Google Map</a>
+                </div>
+                <div class="spot-card">
+                    <h4 class="spot-title">栞日 (Kioribi) <span class="spot-tag tag-book">📚 書店</span></h4>
+                    <p class="spot-note">
+                        激推！有咖啡甜點，二樓為展覽空間，選書極佳，推廣在地工藝。
+                        <span class="spot-time">⏱️ 營業時間：08:00 - 18:00 (週三公休)</span>
+                    </p>
+                    <a href="https://maps.app.goo.gl/2o6KgrPUdEvP8hGa6" target="_blank" class="spot-link">📍 Google Map</a>
+                </div>
+                <div class="spot-card">
+                    <h4 class="spot-title">藤むら <span class="spot-tag tag-food">🍰 甜點</span></h4>
+                    <p class="spot-note">
+                        蘭姆葡萄餅乾超好吃！需冷藏，建議當下買來自己吃。
+                        <span class="spot-time">⏱️ 營業時間：09:00 - 18:00 (週三公休)</span>
+                    </p>
+                    <a href="https://maps.app.goo.gl/2Xgk18hvR8av4RWcA" target="_blank" class="spot-link">📍 Google Map</a>
+                </div>
+                <div class="spot-card">
+                    <h4 class="spot-title">桜や <span class="spot-tag tag-food">🍱 正餐</span></h4>
+                    <p class="spot-note">
+                        鰻魚飯專賣，雖然不是松本最頂級名店（免排長隊），但已經很強了！
+                        <span class="spot-time">⏱️ 營業時間：11:00-14:00, 17:00-20:00 (週四休)</span>
+                    </p>
+                    <a href="https://maps.app.goo.gl/g1pCNkZkQBao6jEC8" target="_blank" class="spot-link">📍 Google Map</a>
+                </div>
+                <div class="spot-card">
+                    <h4 class="spot-title">蕎麥俱樂部佐佐木 <span class="spot-tag tag-food">🍜 正餐</span></h4>
+                    <p class="spot-note">
+                        好吃的蕎麥麵！大多使用在地食材，感受得到店家的用心。
+                        <span class="spot-time">⏱️ 營業時間：11:30-14:00, 18:00-21:00 (日一晚休)</span>
+                    </p>
+                    <a href="https://maps.app.goo.gl/G2wxL4VYjnfbZrSq6" target="_blank" class="spot-link">📍 Google Map</a>
+                </div>
+                <div class="spot-card">
+                    <h4 class="spot-title">まるも (Marumo) <span class="spot-tag tag-food">☕ 咖啡廳</span></h4>
+                    <p class="spot-note">
+                        超有氣氛的古民家咖啡廳，蜂蜜吐司甜死人但超讚。
+                        <span class="spot-time">⏱️ 營業時間：08:00 - 18:00</span>
+                    </p>
+                    <a href="https://maps.app.goo.gl/1aRWjEEwtnS2YuaT8" target="_blank" class="spot-link">📍 Google Map</a>
+                </div>
+                <div class="spot-card">
+                    <h4 class="spot-title">珈琲美学 アベ <span class="spot-tag tag-food">☕ 咖啡廳</span></h4>
+                    <p class="spot-note">
+                        復古昭和風咖啡店，就在松本車站前，可以請國榕帶大家去！
+                        <span class="spot-time">⏱️ 營業時間：07:00 - 18:30 (週二公休)</span>
+                    </p>
+                    <a href="https://maps.app.goo.gl/jt4VKrVxA1ufK5q9A" target="_blank" class="spot-link">📍 Google Map</a>
+                </div>
+                <div class="spot-card">
+                    <h4 class="spot-title">Wooden tableware store Torinoko. <span class="spot-tag tag-craft">🎨 工藝</span></h4>
+                    <p class="spot-note">
+                        <span class="spot-time">⏱️ 營業時間：11:00 - 17:00 (週三、四公休)</span>
+                    </p>
+                    <a href="https://maps.app.goo.gl/TnXs4esFJWrDzYJE9" target="_blank" class="spot-link">📍 Google Map</a>
+                </div>
+                <div class="spot-card">
+                    <h4 class="spot-title">工藝マエストロ <span class="spot-tag tag-craft">🎨 工藝</span></h4>
+                    <p class="spot-note">
+                        <span class="spot-time">⏱️ 營業時間：10:00 - 17:30 (週二、三公休)</span>
+                    </p>
+                    <a href="https://maps.app.goo.gl/KUKMqr1Q5SHMsxp77" target="_blank" class="spot-link">📍 Google Map</a>
+                </div>
+                <div class="spot-card">
+                    <h4 class="spot-title">2-chōme-4-37 Ōte <span class="spot-tag tag-other">✨ 其他</span></h4>
+                    <p class="spot-note">
+                        <span class="spot-time">⏱️ 營業時間：依實體店家而定</span>
+                    </p>
+                    <a href="https://maps.app.goo.gl/7TCSHDnKh7yjoedV8" target="_blank" class="spot-link">📍 Google Map</a>
+                </div>
+                <div class="spot-card">
+                    <h4 class="spot-title">自遊石 <span class="spot-tag tag-craft">🎨 工藝</span></h4>
+                    <p class="spot-note">
+                        <span class="spot-time">⏱️ 營業時間：10:00 - 17:00 (週三公休)</span>
+                    </p>
+                    <a href="https://maps.app.goo.gl/8CnPzLkJETNSRzkz6" target="_blank" class="spot-link">📍 Google Map</a>
+                </div>
+                <div class="spot-card">
+                    <h4 class="spot-title">ccoto.coto <span class="spot-tag tag-other">✨ 其他</span></h4>
+                    <p class="spot-note">
+                        <span class="spot-time">⏱️ 營業時間：11:00 - 16:00 (多休週一至週三)</span>
+                    </p>
+                    <a href="https://maps.app.goo.gl/wHomMebheim1uJcr9" target="_blank" class="spot-link">📍 Google Map</a>
+                </div>
+                <div class="spot-card">
+                    <h4 class="spot-title">guú by kanam <span class="spot-tag tag-other">✨ 其他</span></h4>
+                    <p class="spot-note">
+                        <span class="spot-time">⏱️ 營業時間：11:00 - 18:00</span>
+                    </p>
+                    <a href="https://maps.app.goo.gl/8AGVjTWe7AVDaJ798" target="_blank" class="spot-link">📍 Google Map</a>
+                </div>
+                <div class="spot-card">
+                    <h4 class="spot-title">来一去一 <span class="spot-tag tag-other">✨ 其他</span></h4>
+                    <p class="spot-note">
+                        <span class="spot-time">⏱️ 營業時間：建議確認店家 IG/公告</span>
+                    </p>
+                    <a href="https://maps.app.goo.gl/W49FZFgYq6VT53a97" target="_blank" class="spot-link">📍 Google Map</a>
+                </div>
+            </div>
+
         </div>
     </div>
 </div>
