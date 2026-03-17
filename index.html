@@ -181,6 +181,32 @@
             color: #fff;
         }
 
+        /* Visit Japan Web 專屬樣式 (深藍色系，格式同 room-box) */
+        .vjw-box {
+            background-color: #f0f4f8;
+            border-radius: 8px;
+            padding: 18px;
+            margin-bottom: 25px;
+            border-left: 4px solid #132B5E;
+            font-size: 15px;
+            line-height: 1.6;
+        }
+        .vjw-box h3 { margin: 0 0 12px 0; font-size: 18px; color: #132B5E; line-height: 1.4; }
+        .vjw-box p { margin: 0 0 15px 0; font-size: 15px; color: #333; }
+        .vjw-btn {
+            display: inline-block;
+            background-color: #132B5E;
+            color: #fff !important;
+            text-decoration: none;
+            padding: 10px 18px;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: bold;
+            transition: background 0.2s;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+        .vjw-btn:hover { background-color: #1a408c; }
+
         .timeline {
             margin: 0;
             padding: 0;
@@ -201,6 +227,17 @@
             min-width: 120px;
             flex-shrink: 0;
             font-size: 18px;
+        }
+        
+        /* 交通時間樣式 */
+        .transit-li .time {
+            /* 保持空白區塊寬度，讓文字對齊 */
+        }
+        .transit-li div {
+            color: #666;
+            font-size: 14.5px;
+            display: flex;
+            align-items: center;
         }
 
         .info-box {
@@ -524,25 +561,39 @@
 </div>
 
 <div class="container">
+    
     <div id="day1" class="day-content active">
         <div class="day-card">
             <div class="day-header">
                 <h2 class="day-title">Day 1</h2>
                 <a href="https://www.google.com/maps/dir/Niigata+Airport/Dormy+Inn+Niigata/" target="_blank" class="map-btn">🗺️ 本日 Google Maps 路線</a>
             </div>
+            
+            <div class="vjw-box">
+                <h3>🛂 出發前提醒：填寫 Visit Japan Web</h3>
+                <p>請提早填寫，並把 QR Code 存好，才可以快速通關</p>
+                <a href="https://services.digital.go.jp/zh-cmn-hant/visit-japan-web/" target="_blank" class="vjw-btn">🔗 前往 Visit Japan Web</a>
+            </div>
+
             <ul class="timeline">
+                <li>
+                    <span class="time">11:00</span>
+                    <div>
+                        桃園國際機場【第一航廈】🐯 虎航櫃檯集合
+                    </div>
+                </li>
                 <li>
                     <span class="time">13:45</span>
                     <div>
                         桃園國際機場【第一航廈】起飛 (🐯 虎航 IT228)
                         <div class="reminder-note">
-                            💡 <strong>提醒：</strong>請提前 2.5 小時（約 11:00）至第一航廈 🐯 虎航櫃檯集合<br>
                             🧳 <strong>行李：</strong>每人 10 公斤手提行李 ＋ 20 公斤託運行李 <a href="https://www.tigerairtw.com/zh-tw/welcome-on-board/baggage" target="_blank">（詳細規定）</a>
                         </div>
                     </div>
                 </li>
                 <li><span class="time">18:00</span><div>抵達新潟機場 (KIJ)</div></li>
                 <li><span class="time">19:00</span><div>集合搭乘巴士</div></li>
+                <li class="transit-li"><span class="time"></span><div>🚌 搭乘巴士前往飯店 (約 20 分)</div></li>
                 <li><span class="time">19:20</span><div>抵達飯店 (辦理入住)</div></li>
             </ul>
             <div class="info-box">
@@ -587,7 +638,9 @@
             </div>
             <ul class="timeline">
                 <li><span class="time">08:30</span><div>飯店出發</div></li>
+                <li class="transit-li"><span class="time"></span><div>🚌 搭乘巴士前往玉川堂 (約 45 分)</div></li>
                 <li><span class="time">09:15 - 10:00</span><div>玉川堂 (見學、中文導覽)</div></li>
+                <li class="transit-li"><span class="time"></span><div>🚌 搭乘巴士前往燕市史料館 (約 10 分)</div></li>
                 <li>
                     <span class="time">10:10 - 11:10</span>
                     <div>
@@ -606,8 +659,11 @@
                         </div>
                     </div>
                 </li>
+                <li class="transit-li"><span class="time"></span><div>🚌 搭乘巴士前往魚沼之里 (約 80 分)</div></li>
                 <li><span class="time">12:30 - 14:00</span><div>魚沼之里 (自由午餐與購物)</div></li>
+                <li class="transit-li"><span class="time"></span><div>🚌 搭乘巴士前往清津峽 (約 60 分)</div></li>
                 <li><span class="time">15:00 - 15:45</span><div>清津峽溪谷隧道 (參觀)</div></li>
+                <li class="transit-li"><span class="time"></span><div>🚌 搭乘巴士前往飯店 (約 105 分)</div></li>
                 <li><span class="time">17:30</span><div>抵達飯店</div></li>
             </ul>
             <div class="info-box">
@@ -633,9 +689,13 @@
             </div>
             <ul class="timeline">
                 <li><span class="time">08:45</span><div>飯店出發</div></li>
+                <li class="transit-li"><span class="time"></span><div>🚌 搭乘巴士前往蕎麥麵博物館 (約 75 分)</div></li>
                 <li><span class="time">10:00 - 12:00</span><div>戶隱蕎麥麵博物館 (手作體驗+午餐)</div></li>
+                <li class="transit-li"><span class="time"></span><div>🚌 搭乘巴士前往善光寺 (約 45 分)</div></li>
                 <li><span class="time">12:45 - 14:45</span><div>善光寺 (參拜與購物)</div></li>
+                <li class="transit-li"><span class="time"></span><div>🚌 搭乘巴士前往長野市中心 (約 15 分)</div></li>
                 <li><span class="time">15:00 - 17:00</span><div>長野市中心 (自由購物)</div></li>
+                <li class="transit-li"><span class="time"></span><div>🚌 搭乘巴士前往飯店 (約 60 分)</div></li>
                 <li><span class="time">18:00</span><div>抵達飯店</div></li>
             </ul>
             <div class="info-box">
@@ -662,9 +722,13 @@
             </div>
             <ul class="timeline">
                 <li><span class="time">08:30</span><div>飯店出發</div></li>
+                <li class="transit-li"><span class="time"></span><div>🚌 搭乘巴士前往松本城 (約 60 分)</div></li>
                 <li><span class="time">09:30 - 12:00</span><div>松本城 & 城下町 (入城參觀、自由午餐)</div></li>
+                <li class="transit-li"><span class="time"></span><div>🚶/🚌 移動至松本市中心 (約 15 分)</div></li>
                 <li><span class="time">12:15 - 13:45</span><div>松本市中心 (自由購物)</div></li>
+                <li class="transit-li"><span class="time"></span><div>🚶/🚌 移動至松本市美術館 (約 15 分)</div></li>
                 <li><span class="time">14:00 - 15:30</span><div>松本市美術館 (入館參觀)</div></li>
+                <li class="transit-li"><span class="time"></span><div>🚌 搭乘巴士前往飯店 (約 75 分)</div></li>
                 <li><span class="time">16:45</span><div>抵達飯店</div></li>
             </ul>
             <div class="info-box">
@@ -690,9 +754,13 @@
             </div>
             <ul class="timeline">
                 <li><span class="time">08:00</span><div>飯店出發</div></li>
+                <li class="transit-li"><span class="time"></span><div>🚌 搭乘巴士前往高田城址公園 (約 120 分)</div></li>
                 <li><span class="time">10:00 - 12:00</span><div>高田城址公園 (賞花、自由午餐)</div></li>
+                <li class="transit-li"><span class="time"></span><div>🚌 搭乘巴士前往越乃雪本舖 (約 90 分)</div></li>
                 <li><span class="time">13:30 - 14:00</span><div>越乃雪本舖 大和屋 本店 (購物)</div></li>
+                <li class="transit-li"><span class="time"></span><div>🚌 搭乘巴士前往新潟市中心 (約 75 分)</div></li>
                 <li><span class="time">15:15 - 16:30</span><div>新潟市中心 (最後自由購物)</div></li>
+                <li class="transit-li"><span class="time"></span><div>🚌 搭乘巴士前往新潟機場 (約 30 分)</div></li>
                 <li><span class="time">17:00</span><div>抵達新潟機場</div></li>
                 <li><span class="time">18:50</span><div>新潟機場 起飛 (虎航 IT229)</div></li>
                 <li><span class="time">21:25</span><div>抵達桃園國際機場 第一航廈</div></li>
